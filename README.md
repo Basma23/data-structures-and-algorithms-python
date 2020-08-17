@@ -1,5 +1,8 @@
 # 401 Python Data Structures and Algorithms
 
-Should be copied and moved to course repo as a reference folder for student's code challenge submissions.
+**401 python code challenge**
+|Index |                                                       Title                                                      |
+|:----:|:----------------------------------------------------------------------------------------------------------------:|
+|  01  |[array_reverse]()                                          |
 
-**NOTE:** may be replaced by cross course dsa repo
+
