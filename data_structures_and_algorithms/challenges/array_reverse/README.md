@@ -6,7 +6,7 @@ This challenge requet a function to revers a list of numbers or array and return
 
 ## Visual
 
-![Input & Output](./assests/array_reverse_input_and_output.JPG)
+![Input & Output](../../../assests/array_reverse_input_and_output.JPG)
 
 ## Algorithm
 
@@ -21,3 +21,9 @@ There are a lot of ways to solve this problem such as the following:
 ```print(arr[::-1])```
 
 
+```def shift_array(shift, n):```
+     ```for i in range(len(shift)):```
+         ```if shift[i] > n:```
+             ```break```
+         ```shift = shift[:i] + [n] + shift[i:]```
+         ```return shift```
