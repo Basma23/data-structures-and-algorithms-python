@@ -1,4 +1,4 @@
-# Reverse of Array
+# Shift a value to Array
 
 ## Problem Domain
 
