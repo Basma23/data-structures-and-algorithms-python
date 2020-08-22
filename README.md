@@ -7,3 +7,4 @@
 |  02  |[array_shift](https://github.com/Basma23/data-structures-and-algorithms-python/pull/2)                            |
 |  03  |[array-binary-search](https://github.com/Basma23/data-structures-and-algorithms-python/pull/3)                            |
 |  04  |[code_challenge_4](https://github.com/Basma23/data-structures-and-algorithms-python/pull/4)                            |
+|  05  |[linked_list](https://github.com/Basma23/data-structures-and-algorithms-python/pull/8)                            |
