@@ -46,6 +46,6 @@ def third_test(prepare_info):
 
 def fourth_test(prepare_info):
     new_book = prepare_info['drinks'].insert('Milk')
-    expected = 'Milk -> History -> Horror -> Novel -> None'
+    expected = 'Milk -> Coffee -> Ice_Tea -> Lemonade -> None'
     actual = prepare_info['drinks'].__str__()
     assert expected == actual
