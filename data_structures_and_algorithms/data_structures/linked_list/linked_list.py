@@ -51,6 +51,6 @@ if __name__=='__main__':
     a = drinks.append('Coffee')
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
-    drinks.append('mocha')
+    drinks.append('Mocha')
     print(f'{drinks}')
 
