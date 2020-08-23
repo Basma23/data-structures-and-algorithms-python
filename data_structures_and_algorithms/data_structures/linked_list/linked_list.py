@@ -48,8 +48,9 @@ class LinkedList():
 
 if __name__=='__main__':
     drinks = LinkedList()
-    a = drinks.append("Coffee")
-    drinks.append("Ice_Tea")
-    drinks.append("Lemonade")
+    a = drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('mocha')
     print(f'{drinks}')
 
