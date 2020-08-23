@@ -1,14 +1,9 @@
 class Node():
-    def __init__(self, info):
-        self.info = info
+    def __init__(self, value):
+        self.value = value
         self.next = None
 
 class LinkedList():
-    """
-    Put docstring here
-    """
-
-    # put your LinkedList implementation here
     def __init__(self):
         self.head = None
 
@@ -41,15 +36,14 @@ class LinkedList():
         current = self.head
         output = ''
         while current: 
-            output += f'{current.info} -> '
+            output += f'<{current.info} ->'
             current = current.next
         output += f'{current}'
         return output
 
-if __name__=='__main__':
-    drinks = LinkedList()
-    a = drinks.append("Coffee")
-    drinks.append("Ice_Tea")
-    drinks.append("Lemonade")
-    print(f'{drinks}')
+    def insert_between(self, prev_info, info):
+        try:
+            do
+        except:
+            return ('This function doesn\'t have been initialized yet')
 
