@@ -127,6 +127,6 @@ if __name__=='__main__':
     drinks.insertAfter(drinks.head.next, 'Milk')
     # drinks.insertAfter(drinks.head.next.next, 'Water')
     drinks.deleteNode('Mocha')
-    drinks.get_kth_from_end_ll(4) 
+    drinks.get_kth_from_end_ll(5) 
     print(f'{drinks}')
 
