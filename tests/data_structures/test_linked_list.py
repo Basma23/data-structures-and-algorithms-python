@@ -45,7 +45,32 @@ def third_test(prepare_info):
     assert expected == actual
 
 def fourth_test(prepare_info):
-    new_book = prepare_info['drinks'].insert('Milk')
+    new_drink = prepare_info['drinks'].insert('Milk')
     expected = 'Milk -> Coffee -> Ice_Tea -> Lemonade -> None'
     actual = prepare_info['drinks'].__str__()
     assert expected == actual
+
+def fifth_test():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('Mocha')
+    drinks.insertBefore('Mocha', 'milkcheck')
+    expected = 'Coffee -> Ice_Tea -> Lemonade -> milkcheck -> Mocha -> None'
+    actual = drinks.__str__()
+    assert expected == actual
+
+def sixth_test():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('Mocha')
+    drinks.insertBefore('Mocha', 'milkcheck')
+    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.deleteNode('Mocha')
+    expected = 'Coffee -> Ice_Tea -> Milk -> Lemonade -> milkcheck -> None'
+    actual = drinks.__str__()
+    assert expected == actual
+
