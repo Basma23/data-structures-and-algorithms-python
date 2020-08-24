@@ -88,3 +88,30 @@ def seventh_test():
     actual = drinks.__str__()
     assert expected == actual
 
+def eight_test():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('Mocha')
+    drinks.insertBefore('Mocha', 'milkcheck')
+    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(6)
+    expected = 'Location is greater than the length of LinkedList'
+    actual = drinks.__str__()
+    assert expected == actual
+
+def ninht_test():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('Mocha')
+    drinks.insertBefore('Mocha', 'milkcheck')
+    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(5)
+    expected = 'Coffee'
+    actual = drinks.__str__()
+    assert expected == actual
