@@ -80,6 +80,34 @@ class LinkedList():
   
         delete = None
 
+    # def get_kth_from_end_ll(self, k):
+    #     current = self.head
+    #     length = 0
+    #     while current is not None:
+    #         current = current.next
+    #         length += 1
+    #         if k > length:
+    #             return f'Location is greater than the' + ' length of LinkedList'
+    #         current = self.head 
+    #         for i in range(0, length - k): 
+    #             current = current.next
+    #         print(current.info)
+
+    def get_kth_from_end_ll(self, k): 
+        current = self.head  
+        length = 0
+        while current is not None: 
+            current = current.next
+            length += 1 
+        if k > length: 
+            print('Location is greater than the' +
+                         ' length of LinkedList') 
+            return
+        current = self.head 
+        for i in range(0, length - k): 
+            current = current.next
+        print(current.info) 
+
     def __str__(self):
         current = self.head
         output = ''
@@ -99,5 +127,6 @@ if __name__=='__main__':
     drinks.insertAfter(drinks.head.next, 'Milk')
     # drinks.insertAfter(drinks.head.next.next, 'Water')
     drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(4) 
     print(f'{drinks}')
 

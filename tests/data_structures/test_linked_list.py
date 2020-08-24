@@ -74,3 +74,17 @@ def sixth_test():
     actual = drinks.__str__()
     assert expected == actual
 
+def seventh_test():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    drinks.append('Mocha')
+    drinks.insertBefore('Mocha', 'milkcheck')
+    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(4)
+    expected = 'Ice_Tea'
+    actual = drinks.__str__()
+    assert expected == actual
+
