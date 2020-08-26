@@ -1,22 +1,14 @@
 from data_structures_and_algorithms.data_structures.linked_list.linked_list import (
-    LinkedList,
+    LinkedList, Node
 )
 import pytest
 
 
-def test_instance():
-    ll = LinkedList()
-    assert isinstance(ll, LinkedList)
+# def test_instance():
+#     ll = LinkedList()
+#     assert isinstance(ll, LinkedList)
 
 @pytest.fixture
-def prepare_info():
-    drinks = LinkedList()
-    a = drinks.append("Coffee")
-    b = drinks.append("Ice_Tea")
-    c = drinks.append("Lemonade")
-    d = drinks.includes("Mocha")
-    return {"a":a,"b":b,"c":c,"d":d,"e":e,"drinks":drinks}
-
 def first_test():
     drinks = LinkedList()
     drinks.append("Coffee")
@@ -26,14 +18,14 @@ def first_test():
     actual = drinks.__str__()
     assert expected == actual
 
-def second_test(prepare_info):
-    prepare_info['drinks']
-    prepare_info['a']
-    prepare_info['b']
-    prepare_info['c']
-    expected = True
-    actual = prepare_info['drinks'].includes("Lemonade")
-    assert expected == actual
+# def second_test(prepare_info):
+#     prepare_info['drinks']
+#     prepare_info['a']
+#     prepare_info['b']
+#     prepare_info['c']
+#     expected = True
+#     actual = prepare_info['drinks'].includes("Lemonade")
+#     assert expected == actual
 
 def third_test(prepare_info):
     prepare_info['drinks']
