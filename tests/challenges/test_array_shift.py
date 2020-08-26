@@ -1,6 +1,6 @@
 from data_structures_and_algorithms.challenges.array_shift.array_shift import shift_array
 
-from data_structures_and_algorithms.challenges.array_shift.array_shift import shift_array
+# from data_structures_and_algorithms.challenges.array_shift.array_shift import shift_array
 
 def shift_array():
     actual = shift_array([2,4,6,8], 5)

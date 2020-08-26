@@ -5,7 +5,14 @@ class Node():
 
 class LinkedList():
     """
-    Put docstring here
+    Features of the linked list 
+    Append
+    Insert 
+    Includes 
+    Insert before a spicefic node
+    Insert after a spicefic node
+    Delete node
+    Get kth from the end
     """
 
     # put your LinkedList implementation here
