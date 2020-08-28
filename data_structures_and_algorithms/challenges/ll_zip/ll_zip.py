@@ -1,76 +1,26 @@
-class Node():
-    def __init__(self, info):
-        self.info = info
-        self.next = None
+from data_structures_and_algorithms.data_structures.linked_list.linked_list import LinkedList
 
-class LinkedList():
-    """
-    Features of the linked list 
-    Zip the two linked lists together into one so that 
-    the nodes alternate between the two lists and return 
-    a reference to the head of the zipped list
-    """
-
-    # put your LinkedList implementation here
-    def __init__(self):
-        self.head = None
-
-    def append(self, info):
-        new_node = Node(info)
-        if not self.head:
-            self.head = new_node
-        else:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = new_node
-
-    def display(self):
-        elements = []
-        current = self.head
-        while current:
-            elements.append(current.info)
-            current = current.next
-        return elements
-
-    def zip_lists(self, lists):
-        current = self.head
-        list_1 = lists.head
-        list_2 = None
-
-        if not current:
-            return list_1
-        if not list_1:
-            return current
-
-        if current and list_1:
-
-            list_2 = current
-            current = list_2.next
-
-            new_head = list_2
-        while current and list_1:
-            list_2.next = list_1
-            list_2 = list_1
-            list_1 = list_2.next
-            list_2.next = current
-            list_2 = current
-            current = list_2.next
-
-        if not current:
-            list_2.next = list_1
-        if not list_1:
-            list_2.next = current
-        return new_head
+def zip_lists(first_ll, second_ll):
+    if not first_ll:
+        return second_ll
+    elif not second_ll:
+        return first_ll
+    result = LinkedList()
+    current_of_first = first_ll.head
+    current_of_second = second_ll.head
+    while current_of_first:
+        result.append(current_of_first.info)
+        if current_of_second:
+            result.append(current_of_second.info)
+            current_of_second = current_of_second.next
+        current_of_first = current_of_first.next
+    while current_of_second:
+        result.append(current_of_second.info)
+        current_of_second = current_of_second
+    return result
 
 if __name__ == '__main__':
-    first = LinkedList()
-    second = LinkedList()
-    first.append(2)
-    first.append(4)
-    first.append(6)
-    second.append(5)
-    second.append(7)
-    second.append(9)
-    first.zip_lists(second)
-    print(first.display())
+    first_ll = LinkedList([1, False, 3, 5])
+    second_ll = LinkedList([7, 'Basma', 9, 11])
+    third_ll = zip_lists(first_ll, second_ll)
+    print(third_ll)

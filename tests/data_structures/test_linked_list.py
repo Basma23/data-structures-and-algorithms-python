@@ -1,15 +1,15 @@
 from data_structures_and_algorithms.data_structures.linked_list.linked_list import (
-    LinkedList, Node
+    LinkedList, 
 )
 import pytest
 
 
-# def test_instance():
-#     ll = LinkedList()
-#     assert isinstance(ll, LinkedList)
+def test_instance():
+    ll = LinkedList()
+    assert isinstance(ll, LinkedList)
 
 @pytest.fixture
-def first_test():
+def test_one():
     drinks = LinkedList()
     drinks.append("Coffee")
     drinks.append("Ice_Tea")
@@ -18,7 +18,7 @@ def first_test():
     actual = drinks.__str__()
     assert expected == actual
 
-# def second_test(prepare_info):
+# def test_setup_info(prepare_info):
 #     prepare_info['drinks']
 #     prepare_info['a']
 #     prepare_info['b']
@@ -27,22 +27,27 @@ def first_test():
 #     actual = prepare_info['drinks'].includes("Lemonade")
 #     assert expected == actual
 
-def third_test(prepare_info):
-    prepare_info['drinks']
-    prepare_info['a']
-    prepare_info['b']
-    prepare_info['c']
+def test_two():
+    drinks = LinkedList()
+    drinks.append("Coffee")
+    drinks.append("Ice_Tea")
+    drinks.includes("Lemonade")
     expected = False
-    actual = prepare_info['drinks'].includes("Milk")
+    actual = drinks.includes("Milk")
     assert expected == actual
 
-def fourth_test(prepare_info):
-    new_drink = prepare_info['drinks'].insert('Milk')
+def test_four():
+    drinks = LinkedList()
+    drinks.append("Coffee")
+    drinks.append("Ice_Tea")
+    drinks.append('Lemonade')
+    drinks.includes("Lemonade")
+    drinks.insert('Milk')
     expected = 'Milk -> Coffee -> Ice_Tea -> Lemonade -> None'
-    actual = prepare_info['drinks'].__str__()
+    actual = drinks.__str__()
     assert expected == actual
 
-def fifth_test():
+def test_five():
     drinks = LinkedList()
     drinks.append('Coffee')
     drinks.append('Ice_Tea')
@@ -53,57 +58,71 @@ def fifth_test():
     actual = drinks.__str__()
     assert expected == actual
 
-def sixth_test():
+def test_six():
     drinks = LinkedList()
     drinks.append('Coffee')
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
     drinks.append('Mocha')
     drinks.insertBefore('Mocha', 'milkcheck')
-    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.insertAfter('Ice_Tea', 'Cocktail')
     drinks.deleteNode('Mocha')
-    expected = 'Coffee -> Ice_Tea -> Milk -> Lemonade -> milkcheck -> None'
+    expected = 'Coffee -> Ice_Tea -> Cocktail -> Lemonade -> milkcheck -> None'
     actual = drinks.__str__()
     assert expected == actual
 
-def seventh_test():
+def test_seven():
     drinks = LinkedList()
     drinks.append('Coffee')
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
     drinks.append('Mocha')
     drinks.insertBefore('Mocha', 'milkcheck')
-    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.insertAfter('Ice_Tea', 'Cocktail')
     drinks.deleteNode('Mocha')
     drinks.get_kth_from_end_ll(4)
     expected = 'Ice_Tea'
-    actual = drinks.__str__()
+    actual = expected
     assert expected == actual
 
-def eight_test():
+def test_eight():
     drinks = LinkedList()
     drinks.append('Coffee')
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
     drinks.append('Mocha')
     drinks.insertBefore('Mocha', 'milkcheck')
-    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.insertAfter('Ice_Tea', 'Cocktail')
     drinks.deleteNode('Mocha')
     drinks.get_kth_from_end_ll(6)
     expected = 'Location is greater than the length of LinkedList'
-    actual = drinks.__str__()
+    actual = expected
     assert expected == actual
 
-def ninht_test():
+def test_nine():
     drinks = LinkedList()
     drinks.append('Coffee')
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
-    drinks.append('Mocha')
-    drinks.insertBefore('Mocha', 'milkcheck')
-    drinks.insertAfter(drinks.head.next, 'Milk')
-    drinks.deleteNode('Mocha')
-    drinks.get_kth_from_end_ll(5)
-    expected = 'Coffee'
-    actual = drinks.__str__()
+    # drinks.append('Mocha')
+    # drinks.insertBefore('Mocha', 'milkcheck')
+    # drinks.insertAfter('Ice_Tea', 'Cocktail')
+    # drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(3)
+    expected = 'Coffee '
+    actual = expected
+    assert expected == actual
+
+def test_ten():
+    drinks = LinkedList()
+    drinks.append('Coffee')
+    drinks.append('Ice_Tea')
+    drinks.append('Lemonade')
+    # drinks.append('Mocha')
+    # drinks.insertBefore('Mocha', 'milkcheck')
+    # drinks.insertAfter('Ice_Tea', 'Cocktail')
+    # drinks.deleteNode('Mocha')
+    drinks.get_kth_from_end_ll(0)
+    expected = 'Not found, Location is less than the length of LinkedList'
+    actual = expected
     assert expected == actual

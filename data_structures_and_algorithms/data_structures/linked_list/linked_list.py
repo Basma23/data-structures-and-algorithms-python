@@ -16,8 +16,10 @@ class LinkedList():
     """
 
     # put your LinkedList implementation here
-    def __init__(self):
+    def __init__(self, items = []):
         self.head = None
+        for i in items:
+            self.append(i)
 
     def append(self, info):
         new_node = Node(info)
@@ -66,8 +68,13 @@ class LinkedList():
 
     def insertAfter(self, prev_node, new_info):
         new_node = Node(new_info)
-        new_node.next = prev_node.next
-        prev_node.next = new_node
+        old_node = self.head
+        while old_node:
+            if old_node.info == prev_node:
+                new_node.next = old_node.next
+                old_node.next = new_node
+                return
+            old_node = old_node.next
 
     def deleteNode(self, key):
         delete = self.head
@@ -107,8 +114,10 @@ class LinkedList():
             current = current.next
             length += 1 
         if k > length: 
-            print('Location is greater than the' +
-                         ' length of LinkedList') 
+            print('Location is greater than the length of LinkedList') 
+            return
+        elif k < length: 
+            print('Location is less than the length of LinkedList') 
             return
         current = self.head 
         for i in range(0, length - k): 
@@ -130,10 +139,11 @@ if __name__=='__main__':
     drinks.append('Ice_Tea')
     drinks.append('Lemonade')
     drinks.append('Mocha')
+    drinks.insert('Milk')
     drinks.insertBefore('Mocha', 'milkcheck')
-    drinks.insertAfter(drinks.head.next, 'Milk')
+    drinks.insertAfter('Ice_Tea', 'Cocktail')
     # drinks.insertAfter(drinks.head.next.next, 'Water')
     drinks.deleteNode('Mocha')
-    drinks.get_kth_from_end_ll(5) 
+    drinks.get_kth_from_end_ll(4) 
     print(f'{drinks}')
 
