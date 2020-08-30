@@ -19,13 +19,15 @@ class Stack():
             self.items.append(new_node.info)
 
     def pop(self):
-        try: 
+        if self.is_empty(): 
+            return None
+        else:
             popped = self.top
             self.top = self.top.next
             popped.next = None
             return popped.info
-        except AttributeError as error:
-            return 'the stack is empty'
+        # except AttributeError as error:
+        #     return 'the stack is empty'
 
     def peek(self):
         try:
@@ -84,13 +86,14 @@ if __name__ == '__main__':
     fruites.push('Pineapple')
     fruites.push('Berry')
     print(fruites.items)
-    print(fruites.peek())
+    # print(fruites.peek())
     print(fruites.pop())
-    fruit.enqueue('Mango')
-    fruit.enqueue('Strawberry')
-    fruit.enqueue('Peach')
-    print(fruit.items)
-    print(fruit.front.info)
-    print(fruit.rear.info)
-    print(fruit.peek())
+    print(fruites.items)
+    # fruit.enqueue('Mango')
+    # fruit.enqueue('Strawberry')
+    # fruit.enqueue('Peach')
+    # print(fruit.items)
+    # print(fruit.front.info)
+    # print(fruit.rear.info)
+    # print(fruit.peek())
 
