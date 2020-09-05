@@ -19,15 +19,12 @@ class Stack():
             self.items.append(new_node.info)
 
     def pop(self):
-        if self.is_empty(): 
-            return None
-        else:
+        if self.top:
             popped = self.top
             self.top = self.top.next
-            popped.next = None
             return popped.info
-        # except AttributeError as error:
-        #     return 'the stack is empty'
+        else:
+            return f'the stack is empty'
 
     def peek(self):
         try:
@@ -60,11 +57,13 @@ class Queue():
 
     def dequeue(self):
         try:
-            current = self.front
-            self.front = current.next
+            temp = self.front
+            self.front = temp.next
             if self.front == None:
-                self.rear = None
-        except AttributeError as error:
+               self.rear = None
+            self.items.pop(0)
+            return temp.info
+        except AttributeError as e:
             return 'the queue is empty'
 
     def peek(self):
@@ -82,18 +81,19 @@ class Queue():
 if __name__ == '__main__':
     fruites = Stack()
     fruit = Queue()
-    fruites.push('Orange')
-    fruites.push('Pineapple')
-    fruites.push('Berry')
-    print(fruites.items)
-    # print(fruites.peek())
-    print(fruites.pop())
-    print(fruites.items)
-    # fruit.enqueue('Mango')
-    # fruit.enqueue('Strawberry')
-    # fruit.enqueue('Peach')
-    # print(fruit.items)
-    # print(fruit.front.info)
-    # print(fruit.rear.info)
-    # print(fruit.peek())
+    # fruites.push('Orange')
+    # fruites.push('Pineapple')
+    # fruites.push('Berry')
+    # print(fruites.items)
+    # # print(fruites.peek())
+    # print(fruites.pop())
+    # print(fruites.items)
+    fruit.enqueue('Mango')
+    fruit.enqueue('Strawberry')
+    fruit.enqueue('Peach')
+    print(fruit.items)
+    print(fruit.front.info)
+    print(fruit.rear.info)
+    print(fruit.peek())
+    print(fruit.dequeue())
 
