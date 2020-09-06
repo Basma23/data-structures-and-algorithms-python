@@ -1,30 +1,47 @@
+from data_structures_and_algorithms.data_structures.stacks_and_queues.stacks_and_queues import Stack
+
 class PseudoQueue():
     def __init__(self):
-        self.items = []
+        self.front_stack = Stack()
+        self.rear_stack = Stack()
+        self.len = 0
 
     def enqueue(self, info):
+        inputs = self.front_stack
+        self.len += 1
         if info == None:
-            return 'Uncorrect input'
-        else:
-            return self.items.insert(0, info)
+            return 'Not a valid input'
+        inputs.push(info)
+        return inputs
 
     def dequeue(self):
-        if len(self.items) == 0:
-            return 'Empty'
-        else:
-            return self.items.pop()
+        if self.rear_stack.is_empty():
+            while self.len > 0:
+                self.rear_stack.push(self.front_stack.pop())
+                self.len -= 1
+            output = self.rear_stack.pop()
 
-    def peek(self):
-        if len(self.items) == 0:
-            return 'Empty'
-        else:
-            return self.items[len(self.items) - 1]
+            while True:
+                self.front_stack.push(self.rear_stack.pop())
+                self.len += 1
+                if self.rear_stack.is_empty():
+                    return output
 
-    def is_empty(self):
-        if len(self.items) == 0:
-            return True
         else:
-            return False
+            return 'The stack is empty'
+
+    def __str__(self):
+        output = 'Rear -> '
+        if self.front_stack.is_empty():
+            current = self.rear_stack.top
+        else:
+            current = self.front_stack.top
+        while current:
+            output += f"{{{current.info}}} -> "
+            current = current.next
+        output+="Front"
+        return output
+        
 
 if __name__ == '__main__':
     pseudo_queue = PseudoQueue()
@@ -32,9 +49,6 @@ if __name__ == '__main__':
     pseudo_queue.enqueue(4)
     pseudo_queue.enqueue(6)
     pseudo_queue.enqueue(8)
-    print(pseudo_queue.items)
-    pseudo_queue.dequeue()
-    print(pseudo_queue.items)
-    pseudo_queue.peek()
-    print(pseudo_queue.items)
+    # pseudo_queue.dequeue()
+    print(pseudo_queue)
 

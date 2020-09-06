@@ -62,7 +62,25 @@ class BinarySearchTree(BinaryTree):
                         break
                     current = current.right  
 
-    # def contains(self, value): 
+    def contains(self, value): 
+        try:
+            if not self.root:
+                return 'value not found'
+            else:
+                current = self.root
+                while (current):
+                    if current.value==value:
+                        return True
+                    if current.value > value: 
+                        if current.left == None: 
+                            return 'value not found'
+                        current = current.left
+                    else:
+                        if current.right == None: 
+                            return 'value not found'
+                        current = current.right
+        except:
+            print("something wrong happened try again") 
 
 if __name__ == '__main__':
     bt = BinaryTree()

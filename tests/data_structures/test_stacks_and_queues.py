@@ -62,3 +62,12 @@ def test_four_queue():
     expected = 'Mango'
     actual = fruit.peek()
     assert expected == actual
+
+def test_five_queue():
+    fruit = Queue()
+    fruit.enqueue('Mango')
+    fruit.enqueue('Strawberry')
+    fruit.enqueue('Peach')
+    expected = 'Mango'
+    actual = fruit.dequeue()
+    assert expected == actual
