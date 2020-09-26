@@ -120,3 +120,5 @@ Merge Sort Array ---> ```[4, 8, 15, 16, 23, 42]```
 - **Time:** O(n*log n)
 - **Space:** O(n)
 
+## Whiteboard 
+![merge_sort](../../../assests/merge_sort.jpg)
