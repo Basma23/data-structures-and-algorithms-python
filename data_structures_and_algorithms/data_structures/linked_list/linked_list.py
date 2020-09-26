@@ -133,6 +133,17 @@ class LinkedList():
         output += f'{current}'
         return output
 
+    def add(self, info):
+        node = Node(info)
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node 
+
+
 if __name__=='__main__':
     drinks = LinkedList()
     drinks.append('Coffee')
