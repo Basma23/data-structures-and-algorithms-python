@@ -1,9 +1,9 @@
-from data_structures_and_algorithms.data_structures.stacks_and_queues.stacks_and_queues import *
-# from queue import Queue
+# from data_structures_and_algorithms.data_structures.stacks_and_queues.stacks_and_queues import *
+from queue import Queue
 
-# class Node:
-#     def __init__(self, info):
-#         self.info = info
+class Node:
+    def __init__(self, info):
+        self.info = info
 
 class Graph():
     def __init__(self):
@@ -31,14 +31,18 @@ class Graph():
     def bfs(self, start_node):
         q = Queue()
         q.enqueue(start_node)
+        visited_nodes = {}
+        visited_nodes[start_node] = True
+        result = []
         while len(q):
             current = q.dequeue()
-            print(current.info)
+            result.append(current)
             neighbors = self._adjacency_list[current]
             for n in neighbors:
-                q.enqueue(n)
-            return neighbors
-        return current
+                if n[0] not in visited_nodes:
+                    q.enqueue(n[0]) 
+                visited_nodes[n[0]] = True
+        return result
 
     def dfs(self, start_node):
         pass
@@ -59,4 +63,4 @@ if __name__ == "__main__":
     g._adjacency_list[a] = [b, c]
     g._adjacency_list[b] = [a, c]
     g._adjacency_list[c] = [a, b]
-    g.bfs(a)
+    print(g.bfs(a))

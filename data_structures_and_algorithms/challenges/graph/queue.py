@@ -5,7 +5,7 @@ class Queue():
         self.dq = deque()
 
     def enqueue(self, value):
-        self.dq.appendleft(value) # O(1)
+        self.dq.appendleft(value)
 
     def dequeue(self):
         return self.dq.pop()
