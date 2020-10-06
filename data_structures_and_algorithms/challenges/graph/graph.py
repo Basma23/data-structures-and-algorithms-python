@@ -47,6 +47,27 @@ class Graph():
     def dfs(self, start_node):
         pass
 
+    def get_edge(self, v_lst):
+        def contains_vertex(value, lst):
+            for vertex in lst:
+                if isinstance(vertex, tuple):
+                    if vertex[0].info == value:
+                        return vertex
+                    continue
+                if vertex.info == value:
+                    return vertex
+            return False, 0
+        current = contains_vertex(v_lst[0], self._adjacency_list.keys())
+        if isinstance(current, Node):
+            tsum = 0
+            for index in range(1, len(v_lst)):
+                current, cost = contains_vertex(v_lst[index], self.get_neighbors(current))
+                tsum += cost
+                if not current:
+                    return (False, '$0')
+            return (True, f'${tsum}')
+        return (False, '$0')
+
 if __name__ == "__main__":
     g = Graph()
     print(g._adjacency_list)
