@@ -1,4 +1,4 @@
-# from data_structures_and_algorithms.data_structures.stacks_and_queues.stacks_and_queues import *
+from data_structures_and_algorithms.data_structures.stacks_and_queues.stacks_and_queues import Stack
 from queue import Queue
 
 class Node:
@@ -45,7 +45,23 @@ class Graph():
         return result
 
     def dfs(self, start_node):
-        pass
+        vertices = []
+        depth = Stack()
+        if start_node not in self._adjacency_list:
+            raise ValueError
+        depth.push(start_node)
+        while not depth.is_empty():
+           top_vertex = depth.pop()
+           vertices.append(top_vertex.info)
+           top_node_neighbors = self.get_neighbors(top_vertex)
+           for neighbor in top_node_neighbors[::-1]:
+               if not neighbor[0].visited_nodes:
+                   top_vertex.visited_nodes = True
+                   neighbor[0].visited_nodes = True
+                   depth.push(neighbor[0])
+        for node in self._adjacency_list:
+            node.visited_nodes = False
+        return vertices
 
     def get_edge(self, v_lst):
         def contains_vertex(value, lst):
